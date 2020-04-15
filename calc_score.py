@@ -17,7 +17,6 @@ def fetch_video_urls(user_id):
     url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&order=date&maxResults=50&channelId={user_id}&quotaUser={user_id}&key={DEVELOPER_KEY}'
     json_url = requests.get(url)
     res = json.loads(json_url.text)
-    print(res)
     video_urls = []
     for video in range(len(res['items'])):
         video_urls.append(res['items'][video]['id']['videoId'])
