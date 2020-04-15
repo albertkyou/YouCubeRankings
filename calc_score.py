@@ -14,7 +14,7 @@ def fetch_video_urls(user_id):
     playlistId ='UU'+user_id[2:] # only used if the codeblock is used.
 
     ## CURRENTLY ONLY LOADING THE LAST 5 VIDEOS ##
-    url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&order=date&maxResults=20&channelId={user_id}&key={DEVELOPER_KEY}'
+    url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&order=date&maxResults=50&channelId={user_id}&quotaUser={user_id}&key={DEVELOPER_KEY}'
     json_url = requests.get(url)
     res = json.loads(json_url.text)
     print(res)
