@@ -4,6 +4,7 @@ import math
 from googleapiclient.discovery import build
 
 # Arguments that need to passed to the build function
+# replace with your own Developer Key
 DEVELOPER_KEY = open('D:\GitHub\YouTube_Developer_Key.txt').read()
 api_service_name = "youtube"
 api_version = "v3"
@@ -26,4 +27,4 @@ def get_channel_id(channel_name):
     return upload_id, user_id  # same as uploads playlist id
 
 
-print(get_channel_id('cyotheking'))
+print(get_channel_id('cyotheking')) # testing
