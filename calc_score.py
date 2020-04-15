@@ -20,7 +20,7 @@ def fetch_video_urls(user_id):
     video_urls = []
     for video in range(len(res['items'])):
         video_urls.append(res['items'][video]['id']['videoId'])
-
+    print('Fetched Video URLs')
     return video_urls
 ''' USE THIS CODE BLOCK IF YOU WANT TO USE ALL VIDEO URLS INSTEAD
 
