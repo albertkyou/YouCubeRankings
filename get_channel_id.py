@@ -26,5 +26,3 @@ def get_channel_id(channel_name):
 
     return upload_id, user_id  # same as uploads playlist id
 
-
-print(get_channel_id('cyotheking')) # testing

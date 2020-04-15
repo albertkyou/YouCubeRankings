@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <h1>YouTube Cuber Rankings</h1>
-        <h3>Ratings for YouTube Cubers</h3>
-        <style>
-            table {
-                border-collapse: collapse;
-                border: 2px black solid;
-                font: 12px sans-serif;
-            }
+<link href="css/form.css" rel="stylesheet">
 
-            td {
-                border: 1px black solid;
-                padding: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        <script src="https://d3js.org/d3.v3.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <h1>YouTube Cuber Rankings</h1>
+    <h3>Ratings for YouTube Cubers</h3>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 2px black solid;
+            font: 12px sans-serif;
+        }
+
+        td {
+            border: 1px black solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="form_sample"></div> 
+    <script src="form.js"></script>
+    -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
 
 
-        <script type="text/javascript"charset="utf-8">
-            d3.text("https://raw.githubusercontent.com/albertkyou/YouCubeRankings/master/db.csv", function(data) {
-                var parsedCSV = d3.csv.parseRows(data);
+    <script type="text/javascript" charset="utf-8">
+        d3.text("https://raw.githubusercontent.com/albertkyou/YouCubeRankings/master/db.csv", function (data) {
+            var parsedCSV = d3.csv.parseRows(data);
 
-                var container = d3.select("body")
-                    .append("table")
+            var container = d3.select("body")
+                .append("table")
 
-                    .selectAll("tr")
-                        .data(parsedCSV).enter()
-                        .append("tr")
+                .selectAll("tr")
+                .data(parsedCSV).enter()
+                .append("tr")
 
-                    .selectAll("td")
-                        .data(function(d) { return d; }).enter()
-                        .append("td")
-                        .text(function(d) { return d; });
-            });
-        </script>
-    </body>
+                .selectAll("td")
+                .data(function (d) { return d; }).enter()
+                .append("td")
+                .text(function (d) { return d; });
+        });
+    </script> 
+</body>
+
 </html>
