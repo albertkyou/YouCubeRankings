@@ -1,7 +1,3 @@
----
-permalink: index.html
----
-
 # YouCubeRankings
 Rankings for YouTube cubers
 
