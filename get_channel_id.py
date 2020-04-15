@@ -4,7 +4,7 @@ import math
 from googleapiclient.discovery import build
 
 # Arguments that need to passed to the build function
-DEVELOPER_KEY = "AIzaSyCi3tOtYwFXEsf6XzAfXJnlALcn8axqe_k"
+DEVELOPER_KEY = open('D:\GitHub\YouTube_Developer_Key.txt').read()
 api_service_name = "youtube"
 api_version = "v3"
 

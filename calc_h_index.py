@@ -4,7 +4,7 @@ import math
 from googleapiclient.discovery import build
 
 # Arguments that need to passed to the build function
-DEVELOPER_KEY = "AIzaSyCi3tOtYwFXEsf6XzAfXJnlALcn8axqe_k"
+DEVELOPER_KEY = open('D:\GitHub\YouTube_Developer_Key.txt').read()
 api_service_name = "youtube"
 api_version = "v3"
 user_id = 'UCgeAeUW_cb_avda0sBMUTmQ'
@@ -78,7 +78,5 @@ def calc_score(video_urls):
     print(score)
     return score
 
-
-playlistId, user_id = get_channel_id('cyoubx')
-video_urls = fetch_video_urls(playlistId, user_id)
+video_urls = fetch_video_urls(user_id)
 calc_score(video_urls)
