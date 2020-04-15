@@ -14,7 +14,7 @@ def fetch_video_urls(user_id):
     playlistId ='UU'+user_id[2:] # only used if the codeblock is used.
 
     ## CURRENTLY ONLY LOADING THE LAST 5 VIDEOS ##
-    url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&order=date&maxResults=5&channelId={user_id}&key={DEVELOPER_KEY}'
+    url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&order=date&maxResults=20&channelId={user_id}&key={DEVELOPER_KEY}'
     json_url = requests.get(url)
     res = json.loads(json_url.text)
     print(res)
@@ -55,7 +55,7 @@ def fetch_video_urls(user_id):
 
 def calc_score(video_urls):
     score = 0
-    counter = 0.0
+    counter = 1.0
     for video_url in video_urls:
 
         # get views, likes, date published
@@ -68,8 +68,7 @@ def calc_score(video_urls):
             likeability = int(data['items'][0]['statistics']['likeCount'])/(int(data['items'][0]
                                                                                 ['statistics']['likeCount'])+int(data['items'][0]['statistics']['dislikeCount']))
 
-            score += ((likeability*math.log(viewCount))**2) * \
-                (counter/len(video_urls))  # float
+            score += ((likeability*math.log(viewCount))**2) * (len(video_urls)-counter)/len(video_urls)  # float
             counter += 1
 
         except:
