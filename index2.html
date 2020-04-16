@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>CSV Parser</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript">
+    </script>
+    <style type="text/css">
+        body {
+            font-family: arial, helvetica, sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            color: #000;
+            text-align: left;
+            margin: 30px 30px;
+        }
+        
+        /* #wrap {
+            width: 500px;
+            height: 500px;
+            margin: 20px;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div id="wrap">
+    </div>
+    <!-- end wrap -->
+    <script type="text/javascript">
+        $.get('db.csv', function (data) {
+            var build = '<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="100%">\n';
+            var rows = data.split("\n");
+            rows.forEach(function getvalues(thisRow) {
+                build += "<tr>\n";
+                var columns = thisRow.split(",");
+                build+= "<td>" + columns[4] ;
+                build+= "<td>" + columns[0] + "</td>\n";
+                build+= "<td>" + columns[3] + "</td>\n";
+                
+                // for (var i = 0; i < columns.length; i++) { build += "<td>" + columns[i] + "</td>\n"; }
+                // build += "</tr>\n";
+            })
+            // build += "</table>";
+            $('#wrap').append(build);
+        });</script>
+
+</body>
+
+</html>
